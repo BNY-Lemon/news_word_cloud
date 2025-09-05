@@ -1,12 +1,11 @@
-config.py
-news_cache.json
 
-.git
 __pycache__/
 *.pyc
+*.pyo
 .ipynb_checkpoints/
 .env
 .env.*
 *.egg-info/
 dist/
 build/
+.vscode

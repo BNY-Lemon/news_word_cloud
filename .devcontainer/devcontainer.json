@@ -4,13 +4,16 @@
   "dockerFile": "Dockerfile",
   "workspaceFolder": "/app",
 
-  "postCreateCommand": "python -m ipykernel install --user --name=devcontainer && python setup_nltk.py",
+  // Run once after container is created
+  "postCreateCommand": "python -m ipykernel install --user --name=devcontainer --display-name 'Python (Dev Container)' && python setup_nltk.py",
   "postStartCommand": "jupyter notebook --ip=0.0.0.0 --allow-root --no-browser --NotebookApp.token=''",
 
-  "forwardPorts": [8888],
+  "runArgs": [
+    "--env-file",
+    "${localWorkspaceFolder}/.env"
+  ],
 
   "containerEnv": {
-    "MY_API_KEY": "${localEnv:MY_API_KEY}",
     "PYTHONUNBUFFERED": "1"
   },
 
